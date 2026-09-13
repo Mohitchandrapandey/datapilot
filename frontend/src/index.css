@@ -1,0 +1,54 @@
+.file-selected {
+  margin-top: 20px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.file-selected strong {
+  font-size: 15px;
+  word-break: break-all;
+}
+
+.file-selected span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.file-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.file-actions button {
+  padding: 10px 16px;
+}
+
+.file-actions button:last-child {
+  background: #111827;
+}
+
+.file-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-top: 18px;
+  padding: 12px;
+
+  border-radius: 10px;
+
+  background: #fef2f2;
+  color: #b91c1c;
+
+  font-size: 14px;
+}
