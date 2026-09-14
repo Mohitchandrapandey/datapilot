@@ -325,37 +325,41 @@ function App() {
                 </div>
               </section>
             )}
+            {reportData && (
+              <section className="panel report-panel">
+                <h3>Report Builder</h3>
 
-           {reportData && (
-  <section className="panel report-panel">
-    <h3>Report Builder</h3>
+                <div className="report-card">
+                  <h4>{String(reportData.title || "DataPilot report")}</h4>
 
-    <div className="report-card">
-      <h4>{String(reportData.title || "DataPilot report")}</h4>
+                  <p>{String(reportData.dataset_name || "Dataset")}</p>
 
-      <p>{String(reportData.dataset_name || "Dataset")}</p>
+                  <ul>
+                    {(reportData.findings as string[] | undefined ?? []).map((finding, index) => (
+                      <li key={index}>{finding}</li>
+                    ))}
+                  </ul>
 
-      <ul>
-        {(reportData.findings as string[] | undefined ?? []).map((finding, index) => (
-          <li key={index}>{finding}</li>
-        ))}
-      </ul>
+                  <div className="results-grid">
+                    {(reportData.visualizations as Array<{ analysis: string; chart: VisualizationChart }> | undefined ?? []).map((visualization) => (
+                      <ChartRenderer
+                        key={visualization.analysis}
+                        chart={visualization.chart}
+                      />
+                    ))}
+                  </div>
 
-      <div className="results-grid">
-        {(reportData.visualizations as Array<{ analysis: string; chart: VisualizationChart }> | undefined ?? []).map((visualization) => (
-          <ChartRenderer
-            key={visualization.analysis}
-            chart={visualization.chart}
-          />
-        ))}
-      </div>
-
-      <div className="report-footer">
-        Developed by <strong>Mohit Pandey</strong>
-      </div>
+                  <div className="report-footer">
+                    Developed by <strong>Mohit Pandey</strong>
+                  </div>
+                </div>
+              </section>
+            )}
+          </>
+        )}
+      </main>
     </div>
-  </section>
-)}
+  );
+}
 
 export default App;
-
